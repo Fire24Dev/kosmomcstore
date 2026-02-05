@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KosmoMC | Rank Hero</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --main-blue: #00d2ff;
+            --hero-gradient: linear-gradient(45deg, #00d2ff, #3a7bd5); /* Blu Hero */
+            --dark-space: #020617;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+            background-attachment: fixed;
+            color: white;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .logo-small {
+            width: 100px;
+            filter: drop-shadow(0 0 10px var(--main-blue));
+            transition: 0.3s;
+        }
+        
+        .logo-small:hover { transform: scale(1.1); }
+
+        .product-container {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 40px;
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            margin-bottom: 50px;
+            box-sizing: border-box;
+        }
+
+        .rank-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem; /* Bello grande e cicciotto */
+            font-weight: 900;
+            text-transform: uppercase;
+            background: var(--hero-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 10px 0;
+            filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.3));
+        }
+
+        .price-tag {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #00d2ff;
+            margin-bottom: 30px;
+        }
+
+        /* Lista Vantaggi */
+        .features-list {
+            text-align: left;
+            list-style: none;
+            padding: 0;
+            margin: 30px 0;
+        }
+
+        .features-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+
+        .features-list li::before {
+            content: "⭐";
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        .buy-now-btn {
+            background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+            color: white;
+            text-decoration: none;
+            padding: 18px 40px;
+            border-radius: 15px;
+            font-weight: 800;
+            display: inline-block;
+            transition: 0.3s;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 1.3rem;
+            box-shadow: 0 5px 15px rgba(0, 210, 255, 0.4);
+        }
+
+        .buy-now-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 210, 255, 0.6);
+        }
+
+        .back-link {
+            margin-top: 25px;
+            display: inline-block;
+            color: #888;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .back-link:hover { color: white; }
+
+        /* Footer */
+        footer {
+            background: #000;
+            width: 100%;
+            padding: 25px 0;
+            text-align: center;
+            margin-top: auto;
+            font-size: 0.8rem;
+            color: #666;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-logo { width: 22px; height: 22px; opacity: 0.5; }
+
+        @media (max-width: 600px) {
+            .rank-title { font-size: 2.5rem; }
+            .product-container { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html">
+            <img src="https://i.ibb.co/v4S8WkX0/image.png" alt="KosmoMC Logo" class="logo-small">
+        </a>
+    </header>
+
+    <div class="product-container">
+        <h1 class="rank-title">Hero</h1>
+        <div class="price-tag">€5.00 / Permanente</div>
+
+        <ul class="features-list">
+            <li>Tutti i vantaggi del Warrior</li>
+            <li>Prefisso [Hero] esclusivo in chat</li>
+            <li>Accesso al comando /fly nella hub</li>
+            <li>Possibilità di impostare 10 home</li>
+            <li>Accesso alla kit Hero ogni 24 ore</li>
+        </ul>
+
+        <a href="https://www.paypal.com/ncp/payment/WH6LZPWBS6Y54" class="buy-now-btn">ACQUISTA ORA</a>
+        <br>
+        <a href="index.html" class="back-link">← Torna alla lista Rank</a>
+    </div>
+
+    <footer>
+        <span>© 2026 KosmoMC - Tutti i diritti riservati</span>
+        <img src="https://i.ibb.co/v4S8WkX0/image.png" alt="Mini Logo" class="footer-logo">
+    </footer>
+
+</body>
+</html>

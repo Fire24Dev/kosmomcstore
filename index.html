@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>KosmoMC Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --main-blue: #00d2ff;
+            --deep-blue: #004e92;
+            --dark-space: #020617;
+            --footer-black: #000000;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+            background-attachment: fixed;
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            align-items: center;
+            width: 100%;
+            overflow-x: hidden; /* Evita lo scroll laterale */
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 15px;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo {
+            width: 150px;
+            filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.4));
+            margin-bottom: 20px;
+        }
+
+        /* Box Informativo Gradient */
+        .info-box {
+            background: linear-gradient(135deg, var(--main-blue), var(--deep-blue));
+            padding: 15px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
+            max-width: 90%; /* Adatto al mobile */
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            line-height: 1.4;
+        }
+
+        /* IP Copiabile */
+        .ip-container {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--main-blue);
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        /* Griglia Card Responsive */
+        .store-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            width: 100%;
+            box-sizing: border-box; /* Include padding nel calcolo larghezza */
+            flex: 1;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--main-blue);
+        }
+
+        /* Rank Names Gradient */
+        .rank-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            margin: 0;
+            text-transform: uppercase;
+            background-size: 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .warrior .rank-name { background-image: linear-gradient(45deg, #bdc3c7, #7f8c8d); }
+        .hero .rank-name { background-image: linear-gradient(45deg, #00d2ff, #3a7bd5); }
+        .princess .rank-name { background-image: linear-gradient(45deg, #ff00cc, #3333ff); }
+        .spartan .rank-name { background-image: linear-gradient(45deg, #f2994a, #f2c94c); }
+
+        .price { font-size: 1.4rem; margin: 15px 0; font-weight: 700; color: #fff; }
+
+        .buy-btn {
+            background: #fff;
+            color: #000;
+            text-decoration: none;
+            padding: 12px 0;
+            border-radius: 10px;
+            font-weight: 700;
+            display: block; /* Occupa tutta la larghezza della card */
+            transition: 0.3s;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--footer-black);
+            width: 100%;
+            padding: 25px 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: auto;
+        }
+
+        .footer-logo {
+            width: 20px;
+            height: 20px;
+            opacity: 0.5;
+        }
+
+        /* Correzione specifica per schermi piccoli */
+        @media (max-width: 600px) {
+            .store-grid {
+                grid-template-columns: 1fr; /* Una sola colonna piena */
+                padding: 15px;
+            }
+            .rank-name {
+                font-size: 1.8rem;
+            }
+            .info-box {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="https://i.ibb.co/v4S8WkX0/image.png" alt="KosmoMC Logo" class="logo">
+        
+        <div class="info-box">
+            KosmoMC non é un server minecraft normale, é spaziale
+        </div>
+
+        <div class="ip-container" onclick="copyIP()">
+            IP: <span id="ip-address">play.kosmomc.eu</span>
+        </div>
+    </header>
+
+    <div class="store-grid">
+        <div class="card warrior">
+            <h2 class="rank-name">Warrior</h2>
+            <div class="price">3.00</div>
+            <a href="warrior.html"
+      class="buy-btn">ACQUISTA</a>  </div>
+
+        <div class="card hero">
+            <h2 class="rank-name">Hero</h2>
+            <div class="price">5.00</div>
+            <a href="hero.html"
+      class="buy-btn">ACQUISTA</a> </div>
+
+        <div class="card princess">
+            <h2 class="rank-name">Princess</h2>
+            <div class="price">7.00</div>
+            <a href="princess.html"
+      class="buy-btn">ACQUISTA</a> </div>
+
+        <div class="card spartan">
+            <h2 class="rank-name">Spartan</h2>
+            <div class="price">9.00</div>
+            <a href="spartan.html"
+      class="buy-btn">ACQUISTA</a> </div>
+    </div>
+
+    <footer>
+        <span>© 2026 KosmoMC - Tutti i diritti riservati</span>
+        <img src="https://i.ibb.co/v4S8WkX0/image.png" alt="Mini Logo" class="footer-logo">
+    </footer>
+
+    <script>
+        function copyIP() {
+            const text = document.getElementById('ip-address').innerText;
+            navigator.clipboard.writeText(text);
+            alert("IP Copiato: " + text);
+        }
+    </script>
+
+</body>
+</html>
